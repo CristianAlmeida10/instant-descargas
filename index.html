@@ -287,8 +287,16 @@ footer a { color: var(--text-2); }
     }
   }
 
-  function fail() {
+  function fail(status) {
     const main = document.getElementById("main-btn");
+    if (status === 404) {
+      // Aún no hay ninguna versión publicada.
+      document.getElementById("main-label").textContent = "Próximamente";
+      document.getElementById("main-meta").textContent = "La primera versión estará disponible muy pronto.";
+      document.getElementById("release-line").textContent = "Aún no hay versiones publicadas.";
+      for (const id of ["win-btn", "mac-btn"]) document.getElementById(id).textContent = "Próximamente";
+      return;
+    }
     main.removeAttribute("aria-disabled");
     main.href = releasesUrl;
     document.getElementById("main-label").textContent = "Ver las descargas en GitHub";
