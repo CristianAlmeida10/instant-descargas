@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instant · Descargar</title>
+<meta name="description" content="Instant: capturas de pantalla con anotaciones y grabación de pantalla para reportar bugs. Descarga para Windows y macOS.">
+<link rel="icon" type="image/svg+xml" href="icon-windows.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<!--
+  Página de descargas de Instant (GitHub Pages). La publica .github/workflows/site.yml, que sustituye
+  CristianAlmeida10/instant-descargas por el repositorio público de las versiones (variable RELEASES_REPO, «usuario/repo»).
+  Los enlaces salen de la API de GitHub (última versión publicada), así que no hay que editar esta página
+  al subir una versión nueva.
+-->
+<style>
+:root {
+  color-scheme: light;
+  --bg: #F7F7F8; --surface: #FFFFFF; --line: #E4E4E7; --fill: #F0F0F2;
+  --text: #18181B; --text-2: #52525B; --muted: #6B6B73;
+  --ink: #18181B; --ink-text: #FFFFFF; --accent: #2F6FEB; --rec: #DC2626;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #111113; --surface: #18181B; --line: #2A2A2E; --fill: #232327;
+    --text: #F4F4F5; --text-2: #A1A1AA; --muted: #8B8B94;
+    --ink: #F4F4F5; --ink-text: #18181B; --accent: #4D8DFF; --rec: #F05252;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 15px/1.55 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+header { border-bottom: 1px solid var(--line); background: var(--surface); }
+header .wrap { height: 60px; display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--text); text-decoration: none; }
+.brand img { width: 28px; height: 28px; }
+header nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
+header nav a { color: var(--text-2); text-decoration: none; }
+header nav a:hover { color: var(--text); }
+
+.hero { padding: 72px 0 56px; text-align: center; }
+.hero-icon { width: 96px; height: 96px; margin: 0 auto 24px; display: block; }
+h1 { margin: 0 auto; max-width: 720px; font-size: clamp(30px, 5vw, 44px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; }
+.lead { margin: 16px auto 0; max-width: 600px; color: var(--text-2); font-size: 17px; }
+.cta { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 10px; font: 600 15px Inter, system-ui, sans-serif; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.btn.primary { background: var(--ink); color: var(--ink-text); }
+.btn.primary:hover { opacity: .9; }
+.btn.secondary { background: var(--surface); color: var(--text); border-color: var(--line); min-height: 40px; font-weight: 500; font-size: 14px; }
+.btn.secondary:hover { background: var(--fill); }
+.btn svg { width: 18px; height: 18px; }
+.btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+.meta { font-size: 13px; color: var(--muted); }
+.meta .mono, .mono { font-family: var(--mono); font-size: 12px; }
+.alt { font-size: 14px; color: var(--text-2); }
+
+section.block { padding: 48px 0; border-top: 1px solid var(--line); }
+h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.02em; }
+.sub { margin: 0 0 24px; color: var(--text-2); }
+.platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.card.recommended { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.card-head { display: flex; align-items: center; gap: 12px; }
+.card-head img { width: 44px; height: 44px; }
+.card-head h3 { margin: 0; font-size: 17px; }
+.card-head .meta { display: block; }
+.tag { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.card .btn { width: 100%; }
+.card ul { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 14px; }
+.card .links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.feature h3 { margin: 10px 0 4px; font-size: 15px; }
+.feature p { margin: 0; color: var(--text-2); font-size: 14px; }
+.feature svg { width: 22px; height: 22px; color: var(--text); }
+.feature svg .red { color: var(--rec); }
+
+.help { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.help .card p { margin: 0; color: var(--text-2); font-size: 14px; }
+kbd { font-family: var(--mono); font-size: 12px; padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; background: var(--surface); }
+
+footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+footer a { color: var(--text-2); }
+.notice { margin: 16px auto 0; max-width: 560px; font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .hero { padding: 48px 0 40px; } header nav a.hide-sm { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./"><img id="brand-icon" src="icon-windows.svg" alt="">Instant</a>
+    <nav>
+      <a href="#descargas">Descargas</a>
+      <a href="#funciones" class="hide-sm">Funciones</a>
+      <a id="nav-releases" href="#" class="hide-sm">Todas las versiones</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <img class="hero-icon" id="hero-icon" src="icon-windows.svg" alt="Icono de Instant">
+      <h1>Capturas y grabaciones de pantalla para reportar bugs</h1>
+      <p class="lead">Captura, anota y graba en segundos. Pensado para equipos de QA: pasos para reproducir, datos del entorno y video con cada clic visible.</p>
+      <div class="cta">
+        <a class="btn primary" id="main-btn" href="#descargas" aria-disabled="true">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v7.5M5 7l3 3 3-3M3 12.5h10"/></svg>
+          <span id="main-label">Buscando la última versión…</span>
+        </a>
+        <span class="meta" id="main-meta">&nbsp;</span>
+        <span class="alt" id="main-alt"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="descargas">
+    <div class="wrap">
+      <h2>Descargas</h2>
+      <p class="sub" id="release-line">Instaladores de la última versión.</p>
+      <div class="platforms">
+        <article class="card" id="card-windows">
+          <div class="card-head">
+            <img src="icon-windows.svg" alt="">
+            <div><h3>Windows</h3><span class="meta">Windows 10 y 11 · 64 bits</span></div>
+            <span class="tag" hidden>Tu sistema</span>
+          </div>
+          <a class="btn primary" id="win-btn" aria-disabled="true" href="#">Descargar para Windows</a>
+          <ul>
+            <li>Instalador en español, sin permisos de administrador.</li>
+            <li>Se abre al iniciar sesión, en la bandeja (se puede desactivar).</li>
+          </ul>
+          <div class="links"><a id="win-msi" href="#" hidden>Instalador MSI (empresas)</a></div>
+        </article>
+        <article class="card" id="card-mac">
+          <div class="card-head">
+            <img src="icon-macos.svg" alt="">
+            <div><h3>macOS</h3><span class="meta">macOS 12.3 o posterior · Apple Silicon (M1 en adelante)</span></div>
+            <span class="tag" hidden>Tu sistema</span>
+          </div>
+          <a class="btn primary" id="mac-btn" aria-disabled="true" href="#">Descargar para Mac</a>
+          <ul>
+            <li>Arrastra Instant a Aplicaciones y ábrelo.</li>
+            <li>La primera vez pide el permiso de Grabación de pantalla.</li>
+          </ul>
+          <div class="links"><a id="mac-intel" href="#" hidden>Mac con procesador Intel</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="funciones">
+    <div class="wrap">
+      <h2>Qué puedes hacer</h2>
+      <p class="sub">Todo dentro de la app, sin servicios en la nube.</p>
+      <div class="features">
+        <div class="feature">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6V4a1 1 0 0 1 1-1h2M10 3h2a1 1 0 0 1 1 1v2M13 10v2a1 1 0 0 1-1 1h-2M6 13H4a1 1 0 0 1-1-1v-2"/></svg>
+          <h3>Capturas con anotaciones</h3>
+          <p>Región, ventana, pantalla completa o con desplazamiento. Flechas, texto, números, difuminado y OCR.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.5" fill="currentColor" class="red" style="color: var(--rec)"/></svg>
+          <h3>Grabación de pantalla</h3>
+          <p>Clics y teclas visibles, micrófono y sonido del sistema, cámara web y exportación a GIF.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3" width="13" height="8" rx="1.5"/><path d="M4 14h8M6 11v3"/></svg>
+          <h3>Editor de video</h3>
+          <p>Recorta tramos, añade zoom, flechas y desenfoque, y cambia los efectos del puntero después de grabar.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 1.8h5.5L12.5 5v9.2H4z"/><path d="M9.3 1.8V5h3.2M6 8h4.5M6 10.5h4.5"/></svg>
+          <h3>Reportes de bug</h3>
+          <p>Plantillas con pasos para reproducir y datos del entorno. Se copian con formato para Jira, Teams o correo.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="12" height="9" rx="1.5"/><path d="M5 14h6"/></svg>
+          <h3>Vista previa flotante</h3>
+          <p>Tras capturar: copia, guarda, anota o arrastra la imagen directamente a otra app.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1.5" y="4" width="13" height="8" rx="1.5"/><path d="M4 6.5h.5M6.5 6.5h.5M9 6.5h.5M11.5 6.5h.5M5 9.5h6"/></svg>
+          <h3>Atajos globales</h3>
+          <p>Captura desde cualquier app con <kbd id="kb-mod">Ctrl+Mayús</kbd> + número, sin abrir la ventana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ayuda">
+    <div class="wrap">
+      <h2>Al instalar</h2>
+      <p class="sub">Si el sistema muestra un aviso la primera vez:</p>
+      <div class="help">
+        <article class="card">
+          <h3 style="margin:0">Windows: «Windows protegió su PC»</h3>
+          <p>Pulsa <strong>Más información</strong> y luego <strong>Ejecutar de todas formas</strong>. Aparece con las apps nuevas que aún no tienen reputación en SmartScreen.</p>
+        </article>
+        <article class="card">
+          <h3 style="margin:0">macOS: «No se puede abrir…»</h3>
+          <p>Abre <strong>Ajustes del Sistema → Privacidad y seguridad</strong> y pulsa <strong>Abrir igualmente</strong>, o haz clic derecho sobre Instant en Aplicaciones → <strong>Abrir</strong>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Instant</span>
+    <a id="foot-releases" href="#">Versiones anteriores y notas</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Repositorio público con las versiones («usuario/repo»); lo pone el flujo de publicación.
+  const REPO = "CristianAlmeida10/instant-descargas";
+  const configured = !REPO.startsWith("__");
+  const releasesUrl = configured ? `https://github.com/${REPO}/releases` : "#";
+  document.getElementById("year").textContent = new Date().getFullYear();
+  for (const id of ["nav-releases", "foot-releases"]) document.getElementById(id).href = releasesUrl;
+
+  // Sistema del visitante: decide el botón principal y el icono.
+  const ua = navigator.userAgent;
+  const os = /Mac|iPhone|iPad/.test(navigator.platform || ua) ? "mac" : /Win/.test(navigator.platform || ua) ? "windows" : "other";
+  if (os === "mac") {
+    for (const id of ["brand-icon", "hero-icon"]) document.getElementById(id).src = "icon-macos.svg";
+    document.getElementById("kb-mod").textContent = "⌃⇧";
+  }
+  if (os !== "other") {
+    const card = document.getElementById(os === "mac" ? "card-mac" : "card-windows");
+    card.classList.add("recommended");
+    card.querySelector(".tag").hidden = false;
+  }
+
+  const fmtSize = (b) => (b / 1048576).toFixed(1).replace(".", ",") + " MB";
+  const fmtDate = (s) => new Date(s).toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" });
+  const setLink = (el, asset) => {
+    if (!asset) return false;
+    el.href = asset.browser_download_url;
+    el.removeAttribute("aria-disabled");
+    el.hidden = false;
+    return true;
+  };
+
+  function show(rel) {
+    const a = rel.assets || [];
+    const find = (re) => a.find((x) => re.test(x.name));
+    const win = find(/x64-setup\.exe$/i) || find(/\.exe$/i);
+    const msi = find(/\.msi$/i);
+    const mac = find(/aarch64\.dmg$/i) || find(/universal\.dmg$/i) || find(/\.dmg$/i);
+    const macIntel = find(/x64\.dmg$/i);
+    const version = (rel.tag_name || "").replace(/^v/, "");
+
+    document.getElementById("release-line").innerHTML =
+      `Versión <span class="mono">${version}</span> · publicada el ${fmtDate(rel.published_at)} · <a href="${rel.html_url}">notas de la versión</a>`;
+    if (!setLink(document.getElementById("win-btn"), win)) document.getElementById("win-btn").textContent = "Próximamente para Windows";
+    setLink(document.getElementById("win-msi"), msi);
+    if (!setLink(document.getElementById("mac-btn"), mac)) document.getElementById("mac-btn").textContent = "Próximamente para Mac";
+    setLink(document.getElementById("mac-intel"), macIntel);
+
+    // Botón principal según el sistema.
+    const main = document.getElementById("main-btn"), label = document.getElementById("main-label");
+    const mine = os === "mac" ? mac : os === "windows" ? win : null;
+    const other = os === "mac" ? win : mac;
+    if (mine) {
+      setLink(main, mine);
+      label.textContent = os === "mac" ? "Descargar para Mac" : "Descargar para Windows";
+      document.getElementById("main-meta").innerHTML = `Versión <span class="mono">${version}</span> · ${fmtSize(mine.size)} · gratis`;
+      if (other) document.getElementById("main-alt").innerHTML = `¿Usas ${os === "mac" ? "Windows" : "Mac"}? <a href="#descargas">Otras descargas</a>`;
+    } else {
+      main.removeAttribute("aria-disabled");
+      main.href = "#descargas";
+      label.textContent = "Ver descargas";
+      document.getElementById("main-meta").innerHTML = `Versión <span class="mono">${version}</span> para Windows y macOS`;
+    }
+  }
+
+  function fail() {
+    const main = document.getElementById("main-btn");
+    main.removeAttribute("aria-disabled");
+    main.href = releasesUrl;
+    document.getElementById("main-label").textContent = "Ver las descargas en GitHub";
+    document.getElementById("main-meta").textContent = "No se pudo consultar la última versión.";
+    for (const id of ["win-btn", "mac-btn"]) { const b = document.getElementById(id); b.href = releasesUrl; b.removeAttribute("aria-disabled"); }
+  }
+
+  if (!configured) {
+    // Vista previa local: datos de ejemplo (en GitHub Pages, REPO ya viene puesto).
+    const demo = (n, s) => ({ name: n, size: s, browser_download_url: "#" });
+    show({ tag_name: "v0.1.0", published_at: new Date().toISOString(), html_url: "#",
+      assets: [demo("Instant_0.1.0_x64-setup.exe", 3869000), demo("Instant_0.1.0_x64_es-ES.msi", 5570000), demo("Instant_0.1.0_aarch64.dmg", 6100000)] });
+    return;
+  }
+  fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: "application/vnd.github+json" } })
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(show)
+    .catch(fail);
+})();
+</script>
+</body>
+</html>

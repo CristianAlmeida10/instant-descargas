@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12.136 -12.136 124.272 124.272" width="1024" height="1024">
+  <!-- Icono de macOS (Liquid Glass, claro), lienzo 24. El cuerpo ocupa 824 de 1024 px, como pide la
+       rejilla de iconos de macOS; la sombra es la estándar de los iconos del Dock. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E6EE"/></linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D4049"/><stop offset="1" stop-color="#15161B"/></linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/><stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <radialGradient id="dot" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#FF8277"/><stop offset="0.55" stop-color="#F2291E"/><stop offset="1" stop-color="#C5150D"/></radialGradient>
+    <filter id="drop" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+  <rect y="1.6" width="100" height="100" rx="22.5" fill="#000000" opacity="0.22" filter="url(#drop)"/>
+  <rect width="100" height="100" rx="22.5" fill="url(#bg)"/>
+  <rect width="100" height="100" rx="22.5" fill="url(#sheen)"/>
+  <rect x="0.4" y="0.4" width="99.2" height="99.2" rx="22.1" fill="none" stroke="#000000" stroke-opacity="0.06" stroke-width="0.8"/>
+  <path d="M24 39V31a7 7 0 0 1 7-7h8M61 24h8a7 7 0 0 1 7 7v8M76 61v8a7 7 0 0 1-7 7h-8M39 76h-8a7 7 0 0 1-7-7v-8" fill="none" stroke="url(#ink)" stroke-width="6" stroke-linecap="round"/>
+  <rect x="45" y="45" width="10" height="28" rx="5" fill="url(#ink)"/>
+  <rect x="46.6" y="46.5" width="2.6" height="13" rx="1.3" fill="#FFFFFF" opacity="0.28"/>
+  <circle cx="50" cy="33" r="6.5" fill="url(#dot)"/>
+  <ellipse cx="48.1" cy="30.7" rx="2.8" ry="1.6" fill="#FFFFFF" opacity="0.75"/>
+</svg>
